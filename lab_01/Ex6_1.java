@@ -23,7 +23,7 @@ public class Ex6_1 {
  * Question 2: How to customize the options to users,
  *  e.g. only two options: “Yes” and “No”, OR “I do” and “I don’t”
  * 
- * Code is in file "ChoosingOption2.java"
+ * Code is in file "Ex6_1_Optimized.java"
 */
 
 
