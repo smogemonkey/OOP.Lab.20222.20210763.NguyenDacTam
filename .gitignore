@@ -31,5 +31,5 @@
 *.out
 *.app
 
-*.class
+lab_01/*.class
 
