@@ -4,7 +4,6 @@ import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 
 public class Store {
     private DigitalVideoDisc[] itemsInStore;
-
     public Store() {
         itemsInStore = new DigitalVideoDisc[0];
     }
