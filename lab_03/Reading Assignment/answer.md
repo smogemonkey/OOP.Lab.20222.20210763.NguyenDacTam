@@ -8,4 +8,3 @@
 * Question : After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()) why is the title of the JungleDVD changed?
 
 * Answer : Because "dvd.setTitle(title)" change the reference of dvd to a new DigitalVideoDisc, but the value of jungleDVD is unchanged.
-
