@@ -1,0 +1,43 @@
+9. Aggregations:
+- Aims class contains references to Cart class and Store class.
+- Cart class and Store class contain references to Media class.
+- CompactDisc class contains a reference to Track class.
+10. Because the passing object is not an instance of Media, it can not equal to the object from Media class that we are calling methods from. So the code should return false.
+11. The list is created to contain objects from Media class and the objects are also identified as Media class. However, objects in the list are printed out with information from the toString() method from the classes Book, DigitalVideoDisc or CompactDisc. This is because we have overrided the toString() method of each child class from the toString() method of the Media class. When we create those objects, its method toString() has been overrided so it will be printed out with information like "Book -", "DVD -" and "CD -".
+12. 
+- The Media class should implement Comparable interface.
+- We should have return value be:
++ 0: if the passing object is the same with our object
++ 1: if the passing object has the title is bigger than the title of our object(based on string comparison definition) or the cost is bigger that the cost of our object
++ -1: if the passing object has the title is smaller than the title of our object or the cost is smaller that the cost of our object
+Example: 
+	@Override
+	public int compareTo(Media m) {
+		if(this.getTitle().equals(m.getTitle())) {
+			return Float.compare(this.getCost(),m.getCost());
+		}
+		return this.getTitle().compareTo(m.getTitle());
+	}
+- Using only this Comparable interface approach, we can not have two ordering rules of the items. This is because it have only one logical order to return the boolean value. With two orders that can return different boolean values from each other in the same case, it is impossible to have both orders in the this interface approach.
+-@Override
+    public int compareTo(Media m) {
+        if (m instanceof DigitalVideoDisc) {
+            DigitalVideoDisc dvd = (DigitalVideoDisc) m;
+            
+            int titleComparison = this.getTitle().compareTo(dvd.getTitle());
+            
+            if (titleComparison != 0) {
+		return titleComparison;
+	    }
+
+            int lengthComparison = Integer.compare(dvd.getLength(), this.getLength());
+            
+	    if (lengthComparison != 0) {
+                return Double.compare(this.getCost(), otherDvd.getCost());
+            }
+
+	    return Double.compare(this.getCost(), otherDvd.getCost());
+        }
+        return super.compareTo(m);
+	//Compare as a media if the object is not DVD
+    }
